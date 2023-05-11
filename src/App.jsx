@@ -30,10 +30,10 @@ class App extends Component {
     }
     return (
       <div className="App">
-        <Subject 
+        {/*<Subject 
           title={this.state.subject.title} 
           sub={this.state.subject.sub}>
-        </Subject>
+        </Subject> */}
         <TOC data={this.state.contents}></TOC>
         <Content title={_title} desc={_desc}></Content>
       </div>
