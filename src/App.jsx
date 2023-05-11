@@ -5,6 +5,13 @@ import Content from './components/Content.jsx';
 import './App.css';
 
 class App extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      subject: {title:'WEB', sub:'World Wide Web!'}
+    }
+  }
+  
   render() {
     return (
       <div className="App">
