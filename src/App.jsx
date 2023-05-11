@@ -34,6 +34,10 @@ class App extends Component {
           title={this.state.subject.title} 
           sub={this.state.subject.sub}>
         </Subject> */}
+        <header>
+          <h1><a href="/">{this.state.subject.title}</a></h1>
+          {this.state.subject.sub}
+        </header>
         <TOC data={this.state.contents}></TOC>
         <Content title={_title} desc={_desc}></Content>
       </div>
