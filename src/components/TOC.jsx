@@ -1,4 +1,4 @@
-import React, { Component } form 'react';
+import React, { Component } from 'react';
 
 class TOC extends Component {
   render() {
