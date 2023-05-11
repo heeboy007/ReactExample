@@ -42,6 +42,7 @@ class App extends Component {
     return (
       <div className="App">
         <Subject></Subject>
+        <Subject></Subject>
         <TOC></TOC>
         <Content></Content>
       </div>
