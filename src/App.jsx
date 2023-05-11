@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from '../public/favicon.svg';
 import './App.css';
 
 class App extends Component {
@@ -13,7 +12,7 @@ class App extends Component {
           </p>
           <a
             className="App-link"
-            href="https://reactjs.org"
+            href="/public/pure.html"
             target="_blank"
             rel="noopener noreferrer">
             Learn React
