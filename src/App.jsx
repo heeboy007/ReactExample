@@ -1,28 +1,8 @@
 import React, { Component } from 'react';
 import TOC from './components/TOC.jsx';
+import Subject from './components/Subject.jsx';
+import Content from './components/Content.jsx';
 import './App.css';
-
-class Subject extends Component {
-  render() {
-    return (
-      <header>
-        <h1>{this.props.title}</h1>
-        {this.props.sub}
-      </header>
-    );
-  }
-}
-
-class Content extends Component {
-  render() {
-    return (
-      <article>
-        <h2>{this.props.title}</h2>
-        {this.props.desc}
-      </article>
-    );
-  }
-}
 
 class App extends Component {
   render() {
