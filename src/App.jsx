@@ -20,7 +20,7 @@ class App extends Component {
   
   render() {
     console.log('App render');
-    var _title, _desc = null;
+    var _title = null, _desc = null;
     if(this.state.mode === 'welcome'){
       _title = this.state.welcome.title;
       _desc = this.state.welcome.desc;
@@ -38,8 +38,8 @@ class App extends Component {
           <h1><a href="/" onClick={function(e) {
             console.log(e);
             e.preventDefault();
-            this.state.mode = "welcome";
-          }}>{this.state.subject.title}</a></h1>
+            this.state.mode = 'welcome';
+          }.bind(this)}>{this.state.subject.title}</a></h1>
           {this.state.subject.sub}
         </header>
         <TOC data={this.state.contents}></TOC>
