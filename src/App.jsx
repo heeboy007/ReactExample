@@ -28,6 +28,7 @@ class App extends Component {
       _title = this.state.contents[0].title;
       _desc = this.state.contents[0].desc;
     }
+	console.log("render", this);
     return (
       <div className="App">
         {/*<Subject 
