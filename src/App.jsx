@@ -37,7 +37,7 @@ class App extends Component {
         </Subject> */}
         <header>
           <h1><a href="/" onClick={function(e) {
-            console.log(e);
+            console.log("event in", this);
             e.preventDefault();
             this.setState({ mode: "welcome" });
           }.bind(this)}>{this.state.subject.title}</a></h1>
