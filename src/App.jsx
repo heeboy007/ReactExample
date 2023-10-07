@@ -36,16 +36,9 @@ class App extends Component {
           sub={this.state.subject.sub}
 		  onChangePage={ function() {
 		    alert("hihihi");
+			this.setState({ mode:"welcome" });
 		  }.bind(this)}>
         </Subject>
-		{/*<header>
-          <h1><a href="/" onClick={function(e) {
-            console.log("event in", this);
-            e.preventDefault();
-            this.setState({ mode: "welcome" });
-          }.bind(this)}>{this.state.subject.title}</a></h1>
-          {this.state.subject.sub}
-        </header>*/}
         <TOC data={this.state.contents}></TOC>
         <Content title={_title} desc={_desc}></Content>
       </div>
