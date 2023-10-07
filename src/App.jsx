@@ -59,7 +59,11 @@ class App extends Component {
 					selected_content_id:Number(id)
 				});
 			}.bind(this)}></TOC>
-		<Control></Control>
+		<Control onChangeMode={function(_mode){
+				this.setState({
+					mode:_mode
+				});
+			}.bind(this)}></Control>
         <Content title={_title} desc={_desc}></Content>
       </div>
     );
