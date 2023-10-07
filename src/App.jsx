@@ -9,6 +9,7 @@ class App extends Component {
     super(props);
     this.state = {
       mode: 'read',
+	  selected_content_id: 2,
       subject: {title:'WEB', sub:'World Wide Web!'},
       welcome: {title:'Welcome', desc:'Hello, React!!'},
       contents: [
@@ -41,7 +42,7 @@ class App extends Component {
         <TOC 
 			data={this.state.contents}
 			onChangePage={function() {
-				alert("hi");
+				this.setState({ mode:"read" });
 			}.bind(this)}></TOC>
         <Content title={_title} desc={_desc}></Content>
       </div>
