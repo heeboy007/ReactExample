@@ -14,7 +14,8 @@ class App extends Component {
       welcome: {title:'Welcome', desc:'Hello, React!!'},
       contents: [
         {id:1, title:'HTML', desc:'HTML is for information'},
-        {id:2, title:'CSS', desc:'CSS is for design'}
+        {id:2, title:'CSS', desc:'CSS is for design'},
+		{id:3, title:'JavaScript', desc:'JS is for mobility'}
       ]
     }
   }
