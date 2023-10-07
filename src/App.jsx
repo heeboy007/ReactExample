@@ -37,8 +37,8 @@ class App extends Component {
 		}
 		i = i + 1;
 	  }
-      _title = this.state.contents[0].title;
-      _desc = this.state.contents[0].desc;
+      //_title = this.state.contents[0].title;
+      //_desc = this.state.contents[0].desc;
     }
 	console.log("render", this);
     return (
@@ -47,13 +47,16 @@ class App extends Component {
         	title={this.state.subject.title} 
         	sub={this.state.subject.sub}
 			onChangePage={ function() {
-				this.setState({ mode:"welcome" });
+				this.setState({ mode: "welcome" });
 			}.bind(this)}>
         </Subject>
         <TOC 
 			data={this.state.contents}
-			onChangePage={function() {
-				this.setState({ mode:"read" });
+			onChangePage={function(id) {
+				this.setState({ 
+					mode:"read",
+					selected_content_id:Number(id)
+				});
 			}.bind(this)}></TOC>
         <Content title={_title} desc={_desc}></Content>
       </div>
