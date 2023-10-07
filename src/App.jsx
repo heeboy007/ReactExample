@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import TOC from './components/TOC.jsx';
 import Subject from './components/Subject.jsx';
 import Content from './components/Content.jsx';
+import Control from './components/Control.jsx';
 import './App.css';
 
 class App extends Component {
@@ -58,11 +59,7 @@ class App extends Component {
 					selected_content_id:Number(id)
 				});
 			}.bind(this)}></TOC>
-		<ul>
-			<li><a href="/create">create</a></li>
-			<li><a href="/update">update</a></li>
-			<li><input type="button"></input></li>
-		</ul>
+		<Control></Control>
         <Content title={_title} desc={_desc}></Content>
       </div>
     );
