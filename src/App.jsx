@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import TOC from './components/TOC.jsx';
 import Subject from './components/Subject.jsx';
 import ReadContent from './components/ReadContent.jsx';
+import CreateContent from './components/CreateContent.jsx';
 import Control from './components/Control.jsx';
 import './App.css';
 
@@ -42,7 +43,9 @@ class App extends Component {
 	  _article = <ReadContent title={_title} desc={_desc}></ReadContent>
       //_title = this.state.contents[0].title;
       //_desc = this.state.contents[0].desc;
-    }
+    } else if (this.state.mode === 'create'){
+	  _article = <CreateContent></CreateContent>
+	}
 	console.log("render", this);
     return (
       <div className="App">
