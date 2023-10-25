@@ -9,6 +9,9 @@ import './App.css';
 class App extends Component {
   constructor(props){
     super(props);
+	this.max_content_id = 3;
+	//위의 변수가 state가 아닌 이유는 id값 지정시 참고만 하지 UI에 영향을 주지 않기 때문.
+	//state에 넣을지 말지 판단하는 것이 어렵다면 그냥 다 넣을 것.
     this.state = {
       mode: 'read',
 	  selected_content_id: 2,
