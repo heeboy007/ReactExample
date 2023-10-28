@@ -3,6 +3,7 @@ import TOC from './components/TOC.jsx';
 import Subject from './components/Subject.jsx';
 import ReadContent from './components/ReadContent.jsx';
 import CreateContent from './components/CreateContent.jsx';
+import UpdateContent from './components/UpdateContent.jsx';
 import Control from './components/Control.jsx';
 import './App.css';
 
