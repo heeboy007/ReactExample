@@ -44,7 +44,7 @@ class App extends Component {
 		  _desc = this.state.welcome.desc;
 		  _article = <ReadContent title={_title} desc={_desc}></ReadContent>
 		} else if (this.state.mode === 'read') {
-		  var _content = getReadContent();
+		  var _content = this.getReadContent();
 		  _article = <ReadContent title={_content.title} desc={_content.desc}></ReadContent>
 		  //_title = this.state.contents[0].title;
 		  //_desc = this.state.contents[0].desc;
@@ -63,7 +63,7 @@ class App extends Component {
 				console.log(_title, _desc);
 			}.bind(this)}></CreateContent>
 		} else if (this.state.mode === 'update') {
-			var _content = getReadContent();
+			var _content = this.getReadContent();
 			_article = <UpdateContent data={_content} onSubmit={function(_title, _desc) {
 				this.max_content_id = this.max_content_id + 1;
 				var _contents = this.state.contents.concat(
@@ -75,6 +75,7 @@ class App extends Component {
 				console.log(_title, _desc);
 			}.bind(this)}></UpdateContent>
 		}
+	return _article;
   }
 	
   render() {
