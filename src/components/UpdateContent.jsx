@@ -1,6 +1,13 @@
 import React, { Component } from 'react';
 
 class UpdateContents extends Component {
+  constructor(props) {
+	  super(props);
+	  this.state = {
+		  title : this.props.data.title
+	  }
+  }
+	
   render() {
 	console.log(this.props.data);
     console.log('UpdateContents render');
@@ -16,7 +23,11 @@ class UpdateContents extends Component {
 					);
 					alert("Submit!");
 				}.bind(this)}>
-				<p><input type="text" name="title" placeholder="title"></input></p>
+				<p><input 
+					   type="text" 
+					   name="title" 
+					   placeholder="title"
+					   value={this.state.title}></input></p>
 				<p>
 					<textarea name="desc" placeholder="description"></textarea>
 				</p>
