@@ -27,7 +27,11 @@ class UpdateContents extends Component {
 					   type="text" 
 					   name="title" 
 					   placeholder="title"
-					   value={this.state.title}></input></p>
+					   value={this.state.title}
+					   onChange={function(e){
+							console.log(e.target.value);
+							this.setState({title:e.target.value});
+					   }.bind(this)}></input></p>
 				<p>
 					<textarea name="desc" placeholder="description"></textarea>
 				</p>
