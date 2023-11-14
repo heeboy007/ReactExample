@@ -60,19 +60,22 @@ class App extends Component {
 				this.setState({
 					contents: _contents
 				});
-				console.log(_title, _desc);
 			}.bind(this)}></CreateContent>
 		} else if (this.state.mode === 'update') {
 			var _content = this.getReadContent();
-			_article = <UpdateContent data={_content} onSubmit={function(_title, _desc) {
-				this.max_content_id = this.max_content_id + 1;
-				var _contents = this.state.contents.concat(
-					{id:this.max_content_id, title: _title, desc:_desc}
-				);
+			_article = <UpdateContent data={_content} onSubmit={function(_id, _title, _desc) {
+				var _contents = Array.from(this.state.contents);
+				var i = 0;
+				while(i < _contents.length){
+					if(_contents[i].id == _id){
+						_contents[i] = {id:_id, title:_title, desc:_desc};
+						break;
+					}
+					i = i + 1;
+				}
 				this.setState({
 					contents: _contents
 				});
-				console.log(_title, _desc);
 			}.bind(this)}></UpdateContent>
 		}
 	return _article;
