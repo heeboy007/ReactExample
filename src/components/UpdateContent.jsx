@@ -4,6 +4,7 @@ class UpdateContents extends Component {
   constructor(props) {
 	  super(props);
 	  this.state = {
+		  id: this.props.id,
 		  title: this.props.data.title,
 		  desc: this.props.data.desc
 	  };
@@ -26,8 +27,9 @@ class UpdateContents extends Component {
 				onSubmit={ function(e) {
 					e.preventDefault();
 					this.props.onSubmit(
-						e.target.title.value,
-						e.target.desc.value
+						this.state.id,
+						this.state.value,
+						this.state.value
 					);
 					alert("Submit!");
 				}.bind(this)}>
@@ -37,6 +39,7 @@ class UpdateContents extends Component {
 					   placeholder="title"
 					   value={this.state.title}
 					   onChange={this.inputFormHandler}></input></p>
+				<input type="hidden" name="id" value={this.state.id}></input>
 				<p>
 					<textarea 
 						name="desc" 
