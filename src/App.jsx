@@ -58,7 +58,8 @@ class App extends Component {
 					{id:this.max_content_id, title: _title, desc:_desc}
 				);
 				this.setState({
-					contents: _contents
+					contents: _contents,
+					mode:'read'
 				});
 			}.bind(this)}></CreateContent>
 		} else if (this.state.mode === 'update') {
