@@ -11,10 +11,11 @@ function App() {
   );
 }
 
-function FuncComp() {
+function FuncComp(props) {
   return(
     <div className="container">
       <h2>function style component</h2>
+      <p>Number : {props.initNumber}</p>
     </div>
   );
 }
@@ -24,6 +25,7 @@ class ClassComp extends React.Component{
     return(
       <div className='container'>
         <h2>class style component</h2>
+        <p>Number : {this.props.initNumber}</p>
       </div>
     );
   }
