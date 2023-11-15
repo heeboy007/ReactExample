@@ -5,8 +5,8 @@ function App() {
   return (
     <div className="container">
       <h1>Hello World!</h1>
-      <FuncComp></FuncComp>
-      <ClassComp></ClassComp>
+      <FuncComp initNumber={2}></FuncComp>
+      <ClassComp initNumber={2}></ClassComp>
     </div>
   );
 }
