@@ -1,5 +1,8 @@
-node_modules
 .DS_Store
 dist
 dist-ssr
 *.local
+
+# bin files
+reactfuncexample/node_modules/
+node_modules/
