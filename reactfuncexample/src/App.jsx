@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 
 function App() {
@@ -17,7 +17,17 @@ function FuncComp(props) {
   var numberState = useState(props.initNumber);
   var number = numberState[0];
   var setNumber = numberState[1];
-  console.log('numberstate', numberState);
+  //console.log('numberstate', numberState);
+
+  useEffect(function(){
+    console.log('%cfunc => useEffect A (componentDidMount & componentDidUpdate)'+(++funcId), funcStyle);
+    document.title = number + ':' + _date;
+  });
+
+  useEffect(function(){
+    console.log('%cfunc => useEffect B (componentDidMount & componentDidUpdate)'+(++funcId), funcStyle);
+    document.title = number + ':' + _date;
+  });
 
   //var dateState = useState((new Date()).toString());
   //var _date = dateState[0];
