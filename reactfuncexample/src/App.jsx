@@ -11,6 +11,8 @@ function App() {
   );
 }
 
+var funcStyle = 'color:blue';
+var funcId = 0;
 function FuncComp(props) {
   var numberState = useState(props.initNumber);
   var number = numberState[0];
@@ -23,6 +25,7 @@ function FuncComp(props) {
 
   var [_date, setDate] = useState((new Date()).toString());
 
+  console.log('%cfunc => render'+(++funcId), funcStyle);
   return(
     <div className="container">
       <h2>function style component</h2>
