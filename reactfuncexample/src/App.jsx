@@ -19,14 +19,6 @@ function FuncComp(props) {
   var setNumber = numberState[1];
   //console.log('numberstate', numberState);
 
-  useEffect(function(){
-    console.log('%cfunc => useEffect number (componentDidMount & componentDidUpdate)'+(++funcId), funcStyle);
-    document.title = number;
-    return function() {
-      //console.log('%cfunc => useEffect return (componentDidMount & componentDidUpdate)'+(++funcId), funcStyle);
-    }
-  }, [number]);
-
   /*useEffect(function(){
     console.log('%cfunc => useEffect B (componentDidMount & componentDidUpdate)'+(++funcId), funcStyle);
     document.title = number + ':' + _date;
@@ -37,6 +29,22 @@ function FuncComp(props) {
   //var setDate = dateState[1];
 
   var [_date, setDate] = useState((new Date()).toString());
+
+  useEffect(function(){
+    console.log('%cfunc => useEffect _date (componentDidMount & componentDidUpdate)'+(++funcId), funcStyle);
+    document.title = _date;
+    return function() {
+      console.log('%cfunc => useEffect _date return (componentDidMount & componentDidUpdate)'+(++funcId), funcStyle);
+    }
+  }, [_date]);
+
+  useEffect(function(){
+    console.log('%cfunc => useEffect number (componentDidMount & componentDidUpdate)'+(++funcId), funcStyle);
+    document.title = number;
+    return function() {
+      console.log('%cfunc => useEffect number return (componentDidMount & componentDidUpdate)'+(++funcId), funcStyle);
+    }
+  }, [number]);
 
   console.log('%cfunc => render'+(++funcId), funcStyle);
   return(
