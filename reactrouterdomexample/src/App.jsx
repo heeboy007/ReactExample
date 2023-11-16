@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import { Route, Routes, BrowserRouter } from 'react-router-dom';
+import { Route, Routes, Navigate, BrowserRouter } from 'react-router-dom';
 
 function Home() {
   return (
@@ -40,9 +40,11 @@ function App() {
         <li><a href="/contact">Contact</a></li>
       </ul>
       <Routes>
-        <Route path="/" Component={Home} />
+        <Route exact path="/" Component={Home} />
         <Route path="/topics" Component={Topics} />
         <Route path="/contact" Component={Contact} />
+        <Route path="/404" element={<div>Choose the correct path</div>} />
+        <Route path="*" element={<Navigate replace to="/404" />} />
       </Routes>
     </div>
   );
