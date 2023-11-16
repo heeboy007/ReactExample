@@ -38,13 +38,38 @@ function FuncComp(props) {
   );
 }
 
+var classStyle = 'color:red';
 class ClassComp extends React.Component{
   state = {
     number: this.props.initNumber,
     date: (new Date()).toString()
   }
 
+  //deprecated after react 17
+  //componentWillMount(){
+  //  console.log('%cclass => componentWillMount', classStyle);
+  //}
+
+  componentDidMount(){
+    console.log('%cclass => componentDidMount', classStyle);
+  }
+
+  shouldComponentUpdate(){
+    console.log('%cclass => shouldComponentUpdate', classStyle);
+    return true;
+  }
+
+  //deprecated after react 17
+  //componentWillUpdate(){
+  //  console.log('%cclass => componentWillUpdate', classStyle);
+  //}
+
+  componentDidUpdate(){
+    console.log('%cclass => componentDidUpdate', classStyle);
+  }
+
   render(){
+    console.log('%cclass => render', classStyle);
     return(
       <div className='container'>
         <h2>class style component</h2>
