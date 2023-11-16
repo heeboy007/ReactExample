@@ -20,14 +20,17 @@ function FuncComp(props) {
   //console.log('numberstate', numberState);
 
   useEffect(function(){
-    console.log('%cfunc => useEffect A (componentDidMount & componentDidUpdate)'+(++funcId), funcStyle);
+    console.log('%cfunc => useEffect (componentDidMount & componentDidUpdate)'+(++funcId), funcStyle);
     document.title = number + ':' + _date;
+    return function() {
+      console.log('%cfunc => useEffect return (componentDidMount & componentDidUpdate)'+(++funcId), funcStyle);
+    }
   });
 
-  useEffect(function(){
+  /*useEffect(function(){
     console.log('%cfunc => useEffect B (componentDidMount & componentDidUpdate)'+(++funcId), funcStyle);
     document.title = number + ':' + _date;
-  });
+  });*/
 
   //var dateState = useState((new Date()).toString());
   //var _date = dateState[0];
