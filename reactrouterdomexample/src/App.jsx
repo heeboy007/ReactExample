@@ -11,23 +11,34 @@ function Home() {
   );
 }
 
+var contents = [
+  {id:1, title:'HTML', description:'HTML is...'},
+  {id:2, title:'CSS', description:'CSS is...'},
+  {id:3, title:'REACT', description:'React is...'},
+];
+
 function Topics() {
+  var lis = [];
+  for (var i = 0; i < contents.length; i++){
+    lis.push(
+      <li key={"" + contents[i].id}><NavLink to={"" + contents[i].id}>{contents[i].title}</NavLink></li>
+    );
+  }
+  //relative nested route
   return (
     <div>
       <h2>Topics</h2>
       <ul>
-        <li><NavLink to="/topics/1">HTML</NavLink></li>
-        <li><NavLink to="/topics/2">CSS</NavLink></li>
-        <li><NavLink to="/topics/3">React</NavLink></li>
+        {lis}
       </ul>
       <Routes>
-        <Route exact path="/topics/1" Component={<div>
+        <Route path="1" element={<div>
           HTML is...
         </div>} />
-        <Route exact path="/topics/2" Component={<div>
+        <Route path="2" element={<div>
           CSS is...
         </div>} />
-        <Route exact path="/topics/3" Component={<div>
+        <Route path="3" element={<div>
           React is...
         </div>} />
       </Routes>
