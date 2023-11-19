@@ -19,11 +19,21 @@ var contents = [
 
 function Topic() {
   var params = useParams();
-  console.log(params);
+  var topic_id = params.topic_id;
+  var seleted_topic = {
+    title: 'sorry',
+    description: 'Not Found'
+  };
+  for(var i = 0; i < contents.length; i++) {
+    if(contents[i].id === Number(topic_id)){
+      seleted_topic = contents[i];
+      break;
+    }
+  }
   return (
     <div>
-      <h3>Topic</h3>
-      Topic...
+      <h3>{seleted_topic.title}</h3>
+      {seleted_topic.description}
     </div>
   );
 }
