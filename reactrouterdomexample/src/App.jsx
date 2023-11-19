@@ -17,6 +17,15 @@ var contents = [
   {id:3, title:'REACT', description:'React is...'},
 ];
 
+function Topic() {
+  return (
+    <div>
+      <h3>Topic</h3>
+      Topic...
+    </div>
+  );
+}
+
 function Topics() {
   var lis = [];
   for (var i = 0; i < contents.length; i++){
@@ -32,15 +41,7 @@ function Topics() {
         {lis}
       </ul>
       <Routes>
-        <Route path="1" element={<div>
-          HTML is...
-        </div>} />
-        <Route path="2" element={<div>
-          CSS is...
-        </div>} />
-        <Route path="3" element={<div>
-          React is...
-        </div>} />
+        <Route path=":topic_id" element={<Topic />} />
       </Routes>
     </div>
   );
