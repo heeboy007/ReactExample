@@ -22,7 +22,16 @@ class Nav extends Component {
     var listTag = [];
     for(var i = 0; i < this.state.list.length; i++){
       var li = this.state.list[i];
-      listTag.push(<li key={li.id}><a href={li.id}>{li.title}</a></li>);
+      listTag.push(
+      <li key={li.id}>
+        <a href={li.id} data-id={li.id} onClick={function(e){
+          e.preventDefault();
+          console.log('trigger');
+          this.props.onClick(e.target.dataset.id);
+        }.bind(this)}>
+          {li.title}
+        </a>
+      </li>);
     }
     return(
       <nav>
@@ -53,7 +62,20 @@ class App extends Component {
     return (
       <div className="App">
         <h1>WEB</h1>
-        <Nav></Nav>
+        <Nav onClick={function(id){
+          fetch(id+'.json')
+            .then(function(result){
+              return result.json();
+            })
+            .then(function(json){
+              this.setState({
+                article: {
+                  title: json.title,
+                  desc: json.desc
+                }
+              });
+            }.bind(this)); 
+        }.bind(this)}></Nav>
         <Article title={this.state.article.title} desc={this.state.article.desc}></Article>
       </div>
     );
