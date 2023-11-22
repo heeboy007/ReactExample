@@ -2,26 +2,10 @@ import { Component } from 'react';
 import './App.css';
 
 class Nav extends Component {
-  state = {
-    list: []
-  }
-
-  componentDidMount(){
-    fetch('list.json')
-      .then(function(result){
-        return result.json();
-      })
-      .then(function(json){
-        this.setState({list:json});
-      }.bind(this));
-    //가져온 값은 state라는 좋은 재렌더링 + 저장 기능을 통해서
-    //렌더링을 게시하자. 바로 렌더링에 영향을 주는 것은 좋지 않다.
-  }
-
   render() {
     var listTag = [];
-    for(var i = 0; i < this.state.list.length; i++){
-      var li = this.state.list[i];
+    for(var i = 0; i < this.props.list.length; i++){
+      var li = this.props.list[i];
       listTag.push(
       <li key={li.id}>
         <a href={li.id} data-id={li.id} onClick={function(e){
@@ -54,29 +38,78 @@ class Article extends Component {
   }
 }
 
+class NowLoading extends Component {
+  render() {
+    return (
+      <div>Now Loading...</div>
+    );
+  }
+}
+
 class App extends Component {
   state = {
-    article: {title:'Welcome', desc:'Hello, React & Ajax'}
+    article: {
+      item: {title:'Welcome', desc:'Hello, React & Ajax'},
+      isLoading: false
+    },
+    list: {
+      item: [],
+      isLoading: false
+    }
   }
+
+  componentDidMount(){
+    var newList = Object.assign({}, this.state.list, {isLoading:true});
+    this.setState({list:newList});
+    fetch('list.json')
+      .then(function(result){
+        return result.json();
+      })
+      .then(function(json){
+        this.setState({
+          list: {
+            item: json,
+            isLoading: false
+          }
+        });
+      }.bind(this));
+    //가져온 값은 state라는 좋은 재렌더링 + 저장 기능을 통해서
+    //렌더링을 게시하자. 바로 렌더링에 영향을 주는 것은 좋지 않다.
+  }
+
   render() {
+    var NavTag = null;
+    if(this.state.list.isLoading) {
+      NavTag = <NowLoading></NowLoading>
+    } else {
+      NavTag = <Nav list={this.state.list.item} onClick={function(id){
+        var newArticle = Object.assign({}, this.state.article, {isLoading: true});
+        this.setState({article: newArticle});
+        fetch(id+'.json')
+          .then(function(result){
+            return result.json();
+          })
+          .then(function(json){
+            this.setState({
+              article: {
+                item: {title: json.title, desc: json.desc},
+                isLoading: false
+              }
+            });
+          }.bind(this)); 
+      }.bind(this)}></Nav>
+    }
+    var ArticleTag = null;
+    if(this.state.article.isLoading) {
+      ArticleTag = <NowLoading></NowLoading>
+    } else {
+      ArticleTag = <Article title={this.state.article.item.title} desc={this.state.article.item.desc}></Article>
+    }
     return (
       <div className="App">
         <h1>WEB</h1>
-        <Nav onClick={function(id){
-          fetch(id+'.json')
-            .then(function(result){
-              return result.json();
-            })
-            .then(function(json){
-              this.setState({
-                article: {
-                  title: json.title,
-                  desc: json.desc
-                }
-              });
-            }.bind(this)); 
-        }.bind(this)}></Nav>
-        <Article title={this.state.article.title} desc={this.state.article.desc}></Article>
+        {NavTag}
+        {ArticleTag}
       </div>
     );
   }
