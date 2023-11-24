@@ -1,4 +1,5 @@
-import React, { Fragment } from "react";
+import React from "react";
+import './App.css';
 
 function App() {
   const name = '리액트';
@@ -19,6 +20,9 @@ function App() {
       {name === '리액트' && <h1>리액트입니다.</h1>}
       <div style={style}>
         스타일이 적용된! {name}
+      </div>
+      <div className="react">
+        외부 스타일이 적용된! {name}
       </div>
     </div>
   );
