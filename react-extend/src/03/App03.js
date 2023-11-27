@@ -5,6 +5,14 @@ import './src/MyComponent'
 import MyComponent from "./src/MyComponent";
 
 class App03 extends Component {
+  static defaultProps = {
+    name: "React",
+    favoriteNumber: 3
+  };
+  static propTypes = {
+    name: PropTypes.string,
+    favoriteNumber: PropTypes.number.isRequired
+  };
   render() {
     return (
       <div>
@@ -15,16 +23,6 @@ class App03 extends Component {
     );
   }
 }
-
-App03.defaultProps = {
-  name: "React",
-  favoriteNumber: 3
-};
-
-App03.propTypes = {
-  name: PropTypes.string,
-  favoriteNumber: PropTypes.number.isRequired
-};
 
 /*
 function으로 만들어진 함수의 this는 자신이 포함된 객체를 가리킨다.
