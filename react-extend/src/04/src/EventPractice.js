@@ -5,13 +5,13 @@ class EventPractice extends Component{
         message: ''
     }
 
-    handleChange(e) {
+    handleChange = (e) => {
         this.setState({
             message: e.target.value
         });
     }
 
-    handleClick() {
+    handleClick = () => {
         alert(this.state.message);
         this.setState({
             message: ''
