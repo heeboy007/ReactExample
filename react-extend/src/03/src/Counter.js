@@ -12,9 +12,7 @@ class Counter extends Component {
                 <h1>{number}</h1>
                 <h3>건드려지지 않는 숫자 : {fixedNumber}</h3>
                 <button onClick={(e) => {
-                    this.setState(prevState => {
-                        return { number: prevState.number + 1 }
-                    });
+                    this.setState(prevState => ({ number: prevState.number + 1 }));
                 }}>
                     +1
                 </button>
