@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import './App03.css';
 import './src/MyComponent'
 import MyComponent from "./src/MyComponent";
+import Counter from "./src/Counter";
 
 class App03 extends Component {
   static defaultProps = {
@@ -20,6 +21,7 @@ class App03 extends Component {
         <p>Current Name : {name}</p>
         <p>Favorite Number : {favoriteNumber}</p>
         <MyComponent></MyComponent>
+        <Counter></Counter>
       </div>
     );
   }
