@@ -14,10 +14,11 @@ class App03 extends Component {
     favoriteNumber: PropTypes.number.isRequired
   };
   render() {
+    const { name, favoriteNumber } = this.props;
     return (
       <div>
-        <p>Current Name : {this.props.name}</p>
-        <p>Favorite Number : {this.props.favoriteNumber}</p>
+        <p>Current Name : {name}</p>
+        <p>Favorite Number : {favoriteNumber}</p>
         <MyComponent></MyComponent>
       </div>
     );
