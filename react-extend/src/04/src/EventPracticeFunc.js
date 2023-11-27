@@ -1,16 +1,27 @@
 import React, { useState } from "react";
 
 function EventPracticeFunc() {
-    const [ username, setUserName ] = useState('');
-    const [ message, setMessage ] = useState('');
+    const [ form, setForm ] = useState({
+        username: '',
+        message: ''
+    })
 
-    const onChangeUsername = e => setUserName(e.target.value);
-    const onChangeMessage = e => setMessage(e.target.value);
+    const { username, message } = form;
+
+    const onChange = (e) => {
+        const nextForm = {
+            ...form,
+            [e.target.name]: e.target.value
+        };
+        setForm(nextForm);
+    }
 
     const handleClick = () => {
         alert(username + ':' + message);
-        setUserName('');
-        setMessage('');
+        setForm({
+            username: '',
+            message: ''
+        });
     };
 
     const handleKeyPress = (e) => {
@@ -27,13 +38,13 @@ function EventPracticeFunc() {
                 name="username"
                 placeholder="사용자명"
                 value={username}
-                onChange={onChangeUsername}/>
+                onChange={onChange}/>
             <input 
                 type="text"
                 name="message"
                 placeholder="아무거나 입력해 보세요"
                 value={message}
-                onChange={onChangeMessage}
+                onChange={onChange}
                 onKeyPress={handleKeyPress}/>
             <button onClick={handleClick}>확인</button>
         </div>
