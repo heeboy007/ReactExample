@@ -1,7 +1,7 @@
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
 
-function DisplayNum() {
+function DisplayNum(props) {
     return (
         <div
             css={css`
@@ -17,7 +17,7 @@ function DisplayNum() {
                 padding: 0;
                 margin: 0;
             `}>Display Number</h1>
-            <input type="text" value="0" readOnly></input>
+            <input type="text" value={props.number} readOnly></input>
         </div>
     );
 }

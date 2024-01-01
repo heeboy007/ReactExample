@@ -3,7 +3,7 @@ import { css } from "@emotion/react";
 
 import DisplayNum from "./DisplayNum";
 
-function DisplayNumRoot() {
+function DisplayNumRoot(props) {
     return (
         <div
             css={css`
@@ -17,7 +17,7 @@ function DisplayNumRoot() {
             box-sizing: border-box;
         `}>
             Display Number Root
-            <DisplayNum></DisplayNum>
+            <DisplayNum number={props.number}></DisplayNum>
         </div>
     );
 }

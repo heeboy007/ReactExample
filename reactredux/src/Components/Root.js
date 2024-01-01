@@ -1,10 +1,13 @@
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
+import { useState } from "react";
 
 import AddNumRoot from "./AddNumRoot";
 import DisplayNumRoot from "./DisplayNumRoot";
 
 function Root() {
+    const [ number, setNumber ] = useState(0);
+
     return (
         <div
             css={css`
@@ -18,7 +21,7 @@ function Root() {
         `}>
             Root
             <AddNumRoot></AddNumRoot>
-            <DisplayNumRoot></DisplayNumRoot>
+            <DisplayNumRoot number={number}></DisplayNumRoot>
         </div>
     );
 }
