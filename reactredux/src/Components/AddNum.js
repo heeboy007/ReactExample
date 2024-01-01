@@ -1,6 +1,7 @@
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
 
+
 function AddNum() {
     return (
         <div
@@ -9,11 +10,16 @@ function AddNum() {
             height: 80%;
             border: 1vw solid black;
             padding: 2%;
-            font-size: 2vw;
-            font-weight: 900;
             box-sizing: border-box;
         `}>
-            Add Number
+            <h1 css={css`
+                font-size: 2vw;
+                font-weight: 900;
+                padding: 0;
+                margin: 0;
+            `}>Add Number</h1>
+            <input type="button" value="+"></input>
+            <input type="text" value="0"></input>
         </div>
     );
 }
