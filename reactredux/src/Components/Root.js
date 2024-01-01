@@ -20,7 +20,9 @@ function Root() {
             box-sizing: border-box;
         `}>
             Root
-            <AddNumRoot></AddNumRoot>
+            <AddNumRoot onClick={(size) => {
+                setNumber(size + number);
+            }}></AddNumRoot>
             <DisplayNumRoot number={number}></DisplayNumRoot>
         </div>
     );

@@ -1,8 +1,9 @@
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
+import { useState } from "react";
 
-
-function AddNum() {
+function AddNum(props) {
+    const [ size, setSize ] = useState(1);
     return (
         <div
             css={css`
@@ -18,8 +19,13 @@ function AddNum() {
                 padding: 0;
                 margin: 0;
             `}>Add Number</h1>
-            <input type="button" value="+"></input>
-            <input type="text" value="0"></input>
+            <input type="button" value="+" onClick={(e) => {
+                e.preventDefault();
+                props.onClick(size);
+            }}></input>
+            <input type="text" value={size} onChange={(e) => {
+                setSize(Number(e.target.value));
+            }}></input>
         </div>
     );
 }

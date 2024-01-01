@@ -3,7 +3,7 @@ import { css } from "@emotion/react";
 
 import AddNum from "./AddNum";
 
-function AddNumRoot() {
+function AddNumRoot(props) {
     return (
         <div
             css={css`
@@ -17,7 +17,9 @@ function AddNumRoot() {
             box-sizing: border-box;
         `}>
             Add Number Root
-            <AddNum></AddNum>
+            <AddNum onClick={(size) => {
+                props.onClick(size);
+            }}></AddNum>
         </div>
     );
 }
