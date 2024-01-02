@@ -1,9 +1,9 @@
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
 
-import DisplayNum from "./DisplayNum";
+import DisplayNumber from "../Containers/DisplayNumber";
 
-function DisplayNumRoot(props) {
+function DisplayNumRoot() {
     return (
         <div
             css={css`
@@ -17,7 +17,7 @@ function DisplayNumRoot(props) {
             box-sizing: border-box;
         `}>
             Display Number Root
-            <DisplayNum number={props.number}></DisplayNum>
+            <DisplayNumber></DisplayNumber>
         </div>
     );
 }

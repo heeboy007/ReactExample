@@ -2,7 +2,6 @@
 import { css } from "@emotion/react";
 import { useState } from "react";
 
-import store from "../store";
 
 function AddNum(props) {
     const [ size, setSize ] = useState(1);
@@ -22,7 +21,7 @@ function AddNum(props) {
                 margin: 0;
             `}>Add Number</h1>
             <input type="button" value="+" onClick={(e) => {
-                store.dispatch({type: 'INCREMENT', size: size});
+                props.onClick(size);
             }}></input>
             <input type="text" value={size} onChange={(e) => {
                 setSize(Number(e.target.value));
