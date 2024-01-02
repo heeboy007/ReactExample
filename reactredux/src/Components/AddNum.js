@@ -2,7 +2,6 @@
 import { css } from "@emotion/react";
 import { useState } from "react";
 
-
 function AddNum(props) {
     const [ size, setSize ] = useState(1);
     return (

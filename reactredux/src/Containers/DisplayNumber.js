@@ -1,7 +1,19 @@
 import DisplayNum from "../Components/DisplayNum";
-import store from "../store";
-import { useState } from "react";
+import { connect } from "react-redux";
 
+function mapReduxStateToReactProps(state) {
+    return {
+        number: state.number
+    }
+}
+
+function mapReduxDispatchToReactProps() {
+    return {};
+}
+
+export default connect(mapReduxStateToReactProps, mapReduxDispatchToReactProps)(DisplayNum);
+
+/*
 function DisplayNumber() {
     const [ number, setNumber ] = useState(0);
     store.subscribe(() => {
@@ -13,3 +25,4 @@ function DisplayNumber() {
 }
 
 export default DisplayNumber;
+*/
